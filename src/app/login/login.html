@@ -1,0 +1,19 @@
+<button click.delegate="changeLocale('en')" t="[prepend]Locale"> EN</button>
+<button click.delegate="changeLocale('ru')" t="[prepend]Locale"> RU</button>
+<br>
+<br>
+<form action="javascript:void(0)" submit.trigger="login()">
+    <div validation-errors.from-view="nameerrors">
+        <input value.bind="person.name & validate">
+        <div>
+            <span repeat.for="error of nameerrors">${error.result.message}</span>
+        </div>
+    </div>
+    <div validation-errors.from-view="addresserrors">
+        <input value.bind="person.address & validate">
+        <div>
+            <span repeat.for="error of addresserrors">${error.result.message}</span>
+        </div>
+    </div>
+    <button t="Submit"></button>
+</form>

@@ -1,0 +1,15 @@
+{
+  "required": "Required property.",
+  "minLength": "Must have at least {{length}} characters.",
+  "canOnlyContainLettersOrDigits": "Can only contain letters or digits.",
+  "duplicateUsername": "Username is already taken.",
+  "requiresDigit": "Must have at least one digit (0-9).",
+  "requiresLowercase": "Must have at least one lowercase (a-z).",
+  "requiresUppercase": "Must have at least one uppercase (A-Z).",
+  "requiresUniqueChars": "Must use at least {{count}} different characters.",
+
+
+
+  "Locale": "Locale",
+  "Submit": "Submit"
+}
