@@ -17,6 +17,7 @@
     "@aurelia/validation-i18n": "^2.0.0-alpha.10",
     "@types/toastr": "^2.1.38",
     "aurelia": "^2.0.0-alpha.10",
+    "aurelia-direct-router": "^2.0.0-alpha.9",
     "axios": "^0.21.1",
     "toastr": "^2.1.4"
   },

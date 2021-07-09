@@ -7,10 +7,11 @@ import { I18nConfiguration } from '@aurelia/i18n';
 import { ValidationTrigger } from '@aurelia/validation-html';
 import { ValidationI18nConfiguration } from '@aurelia/validation-i18n';
 import { App } from 'app';
-import Aurelia, { RouterConfiguration } from 'aurelia';
+import Aurelia from 'aurelia';
+import { RouterConfiguration } from 'aurelia-direct-router';
 
 Aurelia
-  .register(RouterConfiguration)
+  .register(RouterConfiguration.customize({ useUrlFragmentHash: false }))
   .register(
     I18nConfiguration.customize(options => {
       options.initOptions = {
