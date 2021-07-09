@@ -20,10 +20,8 @@ class LocalStorageItem {
 
 enum LocalStorageKey {
   UILanguage = 'ui-language',
-  Token = 'ft-token',
 }
 
 export class LocalStorage {
   public static uiLanguage = new LocalStorageItem(LocalStorageKey.UILanguage);
-  public static token = new LocalStorageItem(LocalStorageKey.Token);
 }
