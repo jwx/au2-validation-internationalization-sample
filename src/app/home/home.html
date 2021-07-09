@@ -1,0 +1,15 @@
+<import from="./resources/view1/view1"></import>
+<import from="./resources/view2/view2"></import>
+
+<button click.delegate="changeLocale('en')" t="[prepend]Locale"> EN</button>
+<button click.delegate="changeLocale('ru')" t="[prepend]Locale"> RU</button>
+<br>
+<br>
+<ul>
+    <li><a href="#" click.trigger="setView1()">View 1 (Name)</a></li>
+    <li><a href="#" click.trigger="setView2()">View 2 (Address)</a></li>
+</ul>
+<br/>
+<view1 if.bind="showView1"></view1>
+<view2 if.bind="!showView1"></view2>
+

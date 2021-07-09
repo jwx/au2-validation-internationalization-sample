@@ -2,34 +2,21 @@ import { I18N } from '@aurelia/i18n';
 import { newInstanceForScope } from '@aurelia/kernel';
 import { IValidationRules } from '@aurelia/validation';
 import { IValidationController } from '@aurelia/validation-html';
-import { inject, IRouteViewModel } from 'aurelia';
-import { LocaleService } from 'resources/services/locale-service';
-
-class Person {
-  public constructor(
-    public name: string,
-    public age: number,
-    public address: string,
-  ) {
-  }
-}
+import { inject } from 'aurelia';
+import { Person } from 'resources/models/person';
 
 @inject()
-export class Login implements IRouteViewModel {
+export class View2 {
   public person: Person;
+  public message: string;
 
   constructor(@newInstanceForScope(IValidationController) private validationController: IValidationController,
               @IValidationRules validationRules: IValidationRules,
-              @I18N public i18N: I18N,
-              private localeService: LocaleService) {
+              @I18N public i18N: I18N) {
     this.person = new Person(undefined, undefined, undefined);
 
     validationRules
       .on(this.person)
-
-      // does work, but requires to reload the page on language changed
-      .ensure((x: Person) => x.name)
-      .required().withMessage(i18N.tr('required'))
 
       // doesn't work
       .ensure((x: Person) => x.address)
@@ -37,15 +24,13 @@ export class Login implements IRouteViewModel {
       .minLength(10).withMessageKey('minLength');
   }
 
-  public async login() {
+  public async submit() {
+    this.message = '';
     const result = await this.validationController.validate();
     if (!result.valid) return;
 
+    this.message = 'validation passed';
     console.log(result);
-  }
-
-  public changeLocale(locale: string) {
-    this.localeService.set(locale);
   }
 
 }

@@ -1,0 +1,13 @@
+
+<form action="javascript:void(0)" submit.trigger="submit()">
+    <div validation-errors.from-view="addresserrors">
+        <label>Person address</label>
+        <input value.bind="person.address & validate">
+        <div>
+            <span repeat.for="error of addresserrors">${error.result.message}</span>
+        </div>
+    </div>
+
+    <button t="Submit"></button>
+    <h4>${message}</h4>
+</form>

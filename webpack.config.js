@@ -60,7 +60,7 @@ module.exports = ({production, azureDev, apache, iis, extractCss, analyze, tests
     contentBase: outDir,
     historyApiFallback: true,
     overlay: true,
-    port: 9000,
+    port: 9001,
     stats: 'minimal'
   },
   module: {
