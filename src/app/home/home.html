@@ -1,32 +1,34 @@
+<import from="app/resources/route-wrap/route-wrap"></import>
 <import from="resources/elements/toggle-switch/toggle-switch"></import>
 <import from="./resources/view1/view1"></import>
 <import from="./resources/view2/view2"></import>
 
-<button click.delegate="changeLocale('en')" t="[prepend]Locale"> EN</button>
-<button click.delegate="changeLocale('ru')" t="[prepend]Locale"> RU</button>
-<br>
-<br>
-<h1>Validation tests</h1>
-<ul>
-    <li><a href="#" click.trigger="setView1()">View 1 (Name)</a></li>
-    <li><a href="#" click.trigger="setView2()">View 2 (Address)</a></li>
-</ul>
-<br/>
-<view1 if.bind="showView1"></view1>
-<view2 if.bind="!showView1"></view2>
+<route-wrap>
+    <template au-slot>
+        <h1>Validation tests</h1>
+        <ul>
+            <li><a href="#" click.trigger="setView1()">View 1 (Name)</a></li>
+            <li><a href="#" click.trigger="setView2()">View 2 (Address)</a></li>
+        </ul>
+        <br/>
+        <view1 if.bind="showView1"></view1>
+        <view2 if.bind="!showView1"></view2>
 
-<br>
-<br>
-<br>
-<br>
-<h1>call vs bind tests</h1>
-<div class="toggle-wrap">
-    <toggle-switch checked.bind="switch1" label="With on-change.call"
-                   on-change.call="switch1Toggled($event)"></toggle-switch>
-    <label>Checked state: ${switch1!==''?switch1:'empty val'}</label>
-</div>
-<div class="toggle-wrap">
-    <toggle-switch checked.bind="switch2" label="With on-change.bind"
-                   on-change.bind="switch2Toggled"></toggle-switch>
-    <label>Checked state: ${switch2!==''?switch2:'empty val'}</label>
-</div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>call vs bind tests</h1>
+        <div class="toggle-wrap">
+            <toggle-switch checked.bind="switch1" label="With on-change.call"
+                           on-change.call="switch1Toggled($event)"></toggle-switch>
+            <label>Checked state: ${switch1!==''?switch1:'empty val'}</label>
+        </div>
+        <div class="toggle-wrap">
+            <toggle-switch checked.bind="switch2" label="With on-change.bind"
+                           on-change.bind="switch2Toggled"></toggle-switch>
+            <label>Checked state: ${switch2!==''?switch2:'empty val'}</label>
+        </div>
+        <h1><a load="/alternative">To Alternative Route</a></h1>
+    </template>
+</route-wrap>
