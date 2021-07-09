@@ -5,6 +5,8 @@ import { LocaleService } from 'resources/services/locale-service';
 @inject()
 export class Home implements IRouteViewModel {
   public showView1 = true;
+  public switch1 = true;
+  public switch2 = true;
 
   constructor(private localeService: LocaleService) {
   }
@@ -19,5 +21,13 @@ export class Home implements IRouteViewModel {
 
   public setView2() {
     this.showView1 = false;
+  }
+
+  public switch1Toggled(val: boolean){
+    this.switch1 = val;
+  }
+
+  public switch2Toggled = (val: boolean) => {
+    this.switch2 = val;
   }
 }

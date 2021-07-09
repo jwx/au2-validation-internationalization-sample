@@ -1,0 +1,80 @@
+
+@mixin toggle-switch-appearance($height: 25px, $color: green, $font-size: 14px, $offset: 3px) {
+  .switch {
+    height: $height;
+    width: calc((#{$height} - #{$offset}) * 2);
+
+    input {
+      &:checked + .slider {
+        background-color: $color;
+
+        &:before {
+          transform: translateX(calc(#{$height} - 2 * #{$offset}));
+        }
+      }
+
+      &:focus + .slider {
+        box-shadow: 0 0 1px $color;
+      }
+    }
+
+    .slider {
+      border-radius: $height;
+
+      &:before {
+        height: calc(#{$height} - 2 * #{$offset});
+        width: calc(#{$height} - 2 * #{$offset});
+        left: $offset;
+        bottom: $offset;
+      }
+    }
+  }
+
+  label {
+    font-size: $font-size;
+  }
+}
+
+toggle-switch {
+  @include toggle-switch-appearance();
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .switch {
+    position: relative;
+    display: inline-block;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+
+      &:before {
+        position: absolute;
+        content: '';
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+
+      }
+    }
+  }
+
+  label{
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
